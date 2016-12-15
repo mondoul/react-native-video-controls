@@ -935,7 +935,7 @@ export default class VideoPlayer extends Component {
 
     renderReload() {
         return this.renderControl(
-            <Image source={ require('./assets/img/reload.png')} style={{width: 12, height: 12}}/>,
+            <Image source={ require('./assets/img/reload.png')} style={styles.controls.reloadImg}/>,
             this.methods.replayVideo,
             styles.controls.reload
         );
@@ -1186,6 +1186,10 @@ const styles = {
         },
         playPause: {
             width: 30,
+        },
+        reloadImg: {
+            width: 17,
+            height: 17
         },
         reload: {
             width: 50
