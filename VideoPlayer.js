@@ -1146,6 +1146,12 @@ const styles = {
             flex: 2,
             justifyContent: 'flex-end',
         },
+        back: {
+            width: 20,
+            height: 20,
+            marginTop: 5,
+            justifyContent: 'center',
+        },
         seekbar: {
             alignSelf: 'stretch',
             alignItems: 'center',
