@@ -77,6 +77,7 @@ export default class VideoPlayer extends Component {
             onBack: this.props.onBack || this._onBack.bind( this ),
             toggleFullscreen: this._toggleFullscreen.bind( this ),
             togglePlayPause: this._togglePlayPause.bind( this ),
+            replayVideo: () => this.seekTo(0),
             toggleControls: this._toggleControls.bind( this ),
             toggleTimer: this._toggleTimer.bind( this ),
         };
@@ -874,6 +875,7 @@ export default class VideoPlayer extends Component {
                     styles.controls.bottomControlGroup
                 ]}>
                     { this.renderPlayPause() }
+                    { this.renderReload() }
                     { this.renderTitle() }
                     { this.renderTimer() }
                 </View>
@@ -928,6 +930,14 @@ export default class VideoPlayer extends Component {
             <Image source={ source } />,
             this.methods.togglePlayPause,
             styles.controls.playPause
+        );
+    }
+
+    renderReload() {
+        return this.renderControl(
+            <Image source={ require('./assets/img/reload.png')} style={{width: 12, height: 12}}/>,
+            this.methods.replayVideo,
+            styles.controls.reload
         );
     }
 
@@ -1169,7 +1179,10 @@ const styles = {
             flexDirection: 'row',
         },
         playPause: {
-            width: 80,
+            width: 30,
+        },
+        reload: {
+            width: 50
         },
         title: {
             alignItems: 'center',
