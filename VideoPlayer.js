@@ -54,8 +54,6 @@ export default class VideoPlayer extends Component {
          * Any options that can be set at init.
          */
         this.opts = {
-            playWhenInactive: this.props.playWhenInactive || false,
-            playInBackground: this.props.playInBackground || false,
             repeat: this.props.repeat || false,
             title: this.props.title || '',
         };
@@ -1024,8 +1022,6 @@ export default class VideoPlayer extends Component {
                         muted={ this.state.muted }
                         rate={ this.state.rate }
 
-                        playInBackground={ this.opts.playInBackground }
-                        playWhenInactive={ this.opts.playWhenInactive }
                         repeat={ this.opts.repeat }
 
                         onLoadStart={ this.events.onLoadStart }
