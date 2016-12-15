@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Video from 'react-native-video';
-import Icon from 'react-native-icons/MaterialIcons';
 import {
     TouchableWithoutFeedback,
     TouchableHighlight,
@@ -798,8 +797,8 @@ export default class VideoPlayer extends Component {
      */
     renderBack() {
         return this.renderControl(
-            <Icon
-                name='close'
+            <Image
+                source={ require( './assets/img/icon-close.png' ) }
                 style={ styles.controls.back }
             />,
             this.methods.onBack,
@@ -1115,9 +1114,6 @@ const styles = {
         },
         control: {
             padding: 16,
-        },
-        back: {
-            color: '#FFF'
         },
         text: {
             backgroundColor: 'transparent',
