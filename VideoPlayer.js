@@ -181,7 +181,6 @@ export default class VideoPlayer extends Component {
      */
     _onProgress( data = {} ) {
         let state = this.state;
-        console.warn(data.currentTime);
         state.currentTime = data.currentTime;
 
         if ( ! state.seeking ) {
