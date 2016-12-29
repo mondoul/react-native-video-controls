@@ -77,8 +77,12 @@ export default class VideoPlayer extends Component {
             onBack: this.props.onBack || this._onBack.bind( this ),
             toggleFullscreen: this._toggleFullscreen.bind( this ),
             togglePlayPause: this._togglePlayPause.bind( this ),
-            replayVideo: () => this.seekTo(0),
-            toggleControls: this._toggleControls.bind( this ),
+            rewind10sVideo: () => {
+                if (this.state.currentTime - 10 > 0)
+                    this.seekTo(this.state.currentTime - 10);
+                else
+                    this.seekTo(0);
+            },            toggleControls: this._toggleControls.bind( this ),
             toggleTimer: this._toggleTimer.bind( this ),
         };
 
@@ -177,6 +181,7 @@ export default class VideoPlayer extends Component {
      */
     _onProgress( data = {} ) {
         let state = this.state;
+        console.warn(data.currentTime);
         state.currentTime = data.currentTime;
 
         if ( ! state.seeking ) {
@@ -936,7 +941,7 @@ export default class VideoPlayer extends Component {
     renderReload() {
         return this.renderControl(
             <Image source={ require('./assets/img/reload.png')} style={styles.controls.reloadImg}/>,
-            this.methods.replayVideo,
+            this.methods.rewind10sVideo,
             styles.controls.reload
         );
     }
