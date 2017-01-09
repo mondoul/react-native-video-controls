@@ -802,12 +802,12 @@ export default class VideoPlayer extends Component {
      */
     renderBack() {
         return this.renderControl(
-            <Image
-                source={ require( './assets/img/icon-close.png' ) }
-                style={ styles.controls.back }
-            />,
+            <View style={styles.controls.back}>
+                <Text style={{color: 'white', fontSize: 13}}>Done</Text>
+            </View>
+            ,
             this.methods.onBack,
-            styles.controls.back
+            {}
         );
     }
 
@@ -1151,10 +1151,14 @@ const styles = {
             justifyContent: 'flex-end',
         },
         back: {
-            width: 20,
-            height: 20,
-            marginTop: 5,
+            alignItems: 'center',
+            alignSelf: 'center',
             justifyContent: 'center',
+            flex: 1,
+            borderRadius: 5,
+            borderColor: 'white',
+            borderWidth: 0.5,
+            width: 60
         },
         seekbar: {
             alignSelf: 'stretch',
